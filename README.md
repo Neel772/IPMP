@@ -1,2 +1,2 @@
 # IPMP
-Training for INternships.
+Training for Internships.
