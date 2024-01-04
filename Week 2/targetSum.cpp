@@ -11,36 +11,23 @@ public:
 	// Function to check if array has 2 elements
 	// whose sum is equal to the given value
 	bool hasArrayTwoCandidates(int arr[], int n, int x) {
-        sort(arr,arr+n-1);
-        for(int i=0;i<n;i++){
-            int sum1 = x-arr[i];
-            if(sum1 < arr[i]){
-                for(int j=0;j<i;j++){
-                    if(sum1 == arr[j]){
-                        return true;
-                    }
-                }
-            }
-            else if (sum1 > arr[i])
-            {
-                for(int j=i+1;j<n;j++){
-                    if(sum1 == arr[j]){
-                        return true;
-                    }
-                }
-            }
-            else{
-                if(sum1 == arr[i-1] && i>0){
-                    return true;
-                }
-                if(sum1 == arr[i+1] && i<n-1){
-                    return true;
-                }
-            }            
-            }
+	   sort(arr,arr+n);
+       int i=0;
+       int j=n-1;
+       while(i<j){
+           int sum = arr[i]+arr[j];
+           if(sum == x){
+               return true;
+           }
+           else if(sum < x){
+               i++;
+           }
+           else{
+               j--;
+           }
+       }
             return false;
-        }
-    
+	}
 };
 
 //{ Driver Code Starts.
